@@ -58,9 +58,9 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit($locale,Faq $faq)
     {
-        //
+        return view('admin/faq/edit');
     }
 
     /**

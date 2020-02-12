@@ -74,7 +74,7 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq)
     {
-        //
+        return response()->json($faq);
     }
 
     /**
@@ -87,6 +87,21 @@ class FaqController extends Controller
     public function update(Request $request, Faq $faq)
     {
         //
+        $this->validate($request, [
+            'question'  => 'required|max:255',
+            'answer'    => 'required',
+            'published' => 'required'
+        ]);
+ 
+        $faq->question = request('question');
+        $faq->answer = request('answer');
+        $faq->published = request('published');
+
+        $faq->save();
+ 
+        return response()->json([
+            'message' => 'Faq updated successfully!'
+        ], 200);
     }
 
     /**
@@ -97,6 +112,9 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
+        //$faq->delete();
+        return response()->json([
+            'message' => 'Faq deleted successfully!'
+        ], 200);
     }
 }

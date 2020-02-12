@@ -14,6 +14,9 @@ import axios from 'axios';
 
 Vue.use(VueAxios, axios);
 
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32,6 +35,7 @@ Vue.use(VueAxios, axios);
  */
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('create-component', require('./components/CreateComponent.vue').default);
+Vue.component('edit-component', require('./components/EditComponent.vue').default);
 Vue.component('list-component', require('./components/ListComponent.vue').default);
 const app = new Vue({
     el: '#app2',
