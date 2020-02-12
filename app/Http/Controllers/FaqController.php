@@ -14,7 +14,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+
+        return "hii";
     }
 
     /**
