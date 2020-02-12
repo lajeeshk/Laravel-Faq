@@ -39,18 +39,20 @@ Route::group([
 
     Route::get('/', 'FaqController@index')->name('home');
     
-    Auth::routes();
+    //Auth::routes();
     
     Route::get('/home', 'HomeController@index')->name('home');
 
     
 });
 
-Route::group(['prefix' => '{locale}/admin','middleware' => 'auth'], function() {
+Route::group(['prefix' => '{locale}/admin','middleware' => ['setlocale','auth']], function() {
     
     Route::get('/', function (){
         return view('admin/dashboard');
     })->name('admin');
+
+    //Auth::routes();
 
     Route::resource('faq', 'Admin\FaqController',['as'=>'admin']);
 
