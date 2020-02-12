@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/faq/create', 'Api\FaqController@store');
+Route::get('/faq/edit/{id}', 'Api\FaqController@edit');
+Route::post('/faq/update/{id}', 'Api\FaqController@update');
+Route::delete('/faq/{faq}/delete', 'Api\FaqController@destroy');
+Route::get('/faqs', 'Api\FaqController@index');
