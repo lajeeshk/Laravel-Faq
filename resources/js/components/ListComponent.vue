@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-md-10"></div>
           <div class="col-md-2">
-            <a href="" class="btn btn-primary">Create Faq</a>
+            <a :href="`/${lang}/admin/faq/create`" class="btn btn-primary">Create Faq</a>
           </div>
         </div><br />
 
@@ -26,7 +26,7 @@
                     <td>{{ faq.answer }}</td>
                     <td v-if="faq.published">Published</td>
                     <td v-else>UnPublished</td>
-                    <td><a :href= "`/${lang}/admin/faq/${faq.id}/edit`" class="btn btn-primary">Edit</a> <button class="btn btn-danger" @click.prevent="deletePost(faq.id)">Delete</button></td>
+                    <td><a :href= "`/${lang}/admin/faq/${faq.id}/edit`" class="btn btn-primary">Edit</a> <button class="btn btn-danger" @click.prevent="deleteFaq(faq.id)">Delete</button></td>
                     <!-- <td><button class="btn btn-danger" @click.prevent="deletePost(faq.id)">Delete</button></td> -->
                 </tr>
             </tbody>
@@ -48,18 +48,20 @@
       this.axios.get(uri).then(response => {
         this.faqs = response.data;
         console.log(response.data);
-      }).catch(error => console.log(error.response.data));
+      }).catch(error => console.log(error));
 
 
     },
     methods: {
-      deletePost(id)
+      deleteFaq(id)
       {
         let uri = `/api/faq/${id}/delete/`;
         this.axios.delete(uri).then(response => {
-            console.log(response.data);
-          this.posts.splice(this.posts.indexOf(id), 1);
-        }).catch(error => console.log(error.response.data));;
+          console.log(this.faqs);
+          console.log(id);
+            console.log(this.faqs.indexOf(id));
+          this.faqs.splice(this.faqs.indexOf(id), 1);
+        }).catch(error => console.log(error));;
       }
     }
   }

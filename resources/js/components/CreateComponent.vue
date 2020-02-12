@@ -50,7 +50,7 @@
         console.log(this.faq);
         let uri = '/api/faq/create';
         this.axios.post(uri, this.faq).then((response) => {
-        window.localtion.href = lang+'/admin/faqs';
+        window.location.href = `/${this.lang}/admin/faq`;;
     }).catch(error => console.log(error.response));
       }
     }
