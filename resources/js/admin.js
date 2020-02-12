@@ -3,10 +3,16 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+console.log('admin');
 
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+Vue.use(VueAxios, axios);
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,7 +30,8 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('create-component', require('./components/CreateComponent.vue').default);
 const app = new Vue({
     el: '#app2',
 });

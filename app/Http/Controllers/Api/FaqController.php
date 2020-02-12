@@ -36,7 +36,21 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'question'        => 'required',
+            'answer' => 'required',
+        ]);
+ 
+        $faq = Faq::create([
+            'question'        => request('question'),
+            'answer' => request('answer'),
+ 
+        ]);
+ 
+        return response()->json([
+            'faq'    => $faq,
+            'message' => 'Success'
+        ], 200);
     }
 
     /**
