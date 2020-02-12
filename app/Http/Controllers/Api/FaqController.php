@@ -15,7 +15,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = Faq::all();
+        return response()->json($faqs, 200);
     }
 
     /**
@@ -44,6 +45,7 @@ class FaqController extends Controller
         $faq = Faq::create([
             'question'        => request('question'),
             'answer' => request('answer'),
+            'published' => request('published')
  
         ]);
  
