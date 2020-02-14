@@ -15,7 +15,7 @@ class FaqController extends Controller
     public function index()
     {
 
-        return "hii";
+        return view('faq/index');
     }
 
     /**
