@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Welcome to admin</h1>
+<h1>{{ __('main.Welcome') }} to admin</h1>
 @endsection
