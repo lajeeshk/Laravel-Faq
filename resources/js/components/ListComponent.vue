@@ -27,7 +27,6 @@
                     <td v-if="faq.published">Published</td>
                     <td v-else>UnPublished</td>
                     <td><a :href= "`/${lang}/admin/faq/${faq.id}/edit`" class="btn btn-primary">Edit</a> <button class="btn btn-danger" @click.prevent="deleteFaq(faq.id)">Delete</button></td>
-                    <!-- <td><button class="btn btn-danger" @click.prevent="deletePost(faq.id)">Delete</button></td> -->
                 </tr>
             </tbody>
         </table>
@@ -49,8 +48,6 @@
         this.faqs = response.data;
         console.log(response.data);
       }).catch(error => console.log(error));
-
-
     },
     methods: {
       deleteFaq(id)

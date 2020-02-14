@@ -60,7 +60,7 @@
         console.log(this.faq);
         let uri = `/api/faq/${this.faqid}/update`;
         this.axios.post(uri, this.faq).then((response) => {
-        window.location = `/${this.lang}/admin/faq`;;
+        window.location = `/${this.lang}/admin/faq`;
 
     }).catch(error => console.log(error));
       }
