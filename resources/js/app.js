@@ -8,6 +8,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+Vue.use(VueAxios, axios);
+
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -25,7 +33,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+Vue.component('list-faq',require('./components/ListFaq.vue').default);
 const app = new Vue({
     el: '#app2',
 });

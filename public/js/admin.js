@@ -2047,7 +2047,6 @@ __webpack_require__.r(__webpack_exports__);
       var uri = "/api/faq/".concat(this.faqid, "/update");
       this.axios.post(uri, this.faq).then(function (response) {
         window.location = "/".concat(_this2.lang, "/admin/faq");
-        ;
       })["catch"](function (error) {
         return console.log(error);
       });
